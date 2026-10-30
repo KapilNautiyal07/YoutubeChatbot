@@ -1,0 +1,2 @@
+# Optional: on-device embeddings (EMBEDDING_PROVIDER=local). Downloads an ONNX model on first use.
+fastembed>=0.7

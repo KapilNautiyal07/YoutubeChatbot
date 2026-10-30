@@ -1,0 +1,16 @@
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.2
+pydantic-settings==2.16.2
+SQLAlchemy[asyncio]==2.1.6
+asyncpg==0.32.0
+alembic==1.20.1
+pgvector==0.5.1
+youtube-transcript-api==1.2.4
+google-genai==2.34.0
+groq==1.7.0
+httpx==0.28.1
+
+# Development / testing
+pytest==9.2.0
+pytest-asyncio==1.4.1

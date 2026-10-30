@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-paper: #fbf8f3;
+  --color-cream: #f4efe6;
+  --color-sand: #e9e1d3;
+  --color-ink: #1f1b16;
+  --color-ink-soft: #4a4238;
+  --color-muted: #8a7f70;
+
+  --color-ember-50: #fff4ee;
+  --color-ember-100: #ffe4d6;
+  --color-ember-200: #ffc6aa;
+  --color-ember-400: #f2804f;
+  --color-ember-500: #e4572e;
+  --color-ember-600: #c94420;
+  --color-ember-700: #a3361b;
+
+  --color-sage-50: #f1f6f1;
+  --color-sage-100: #dceadc;
+  --color-sage-500: #5b8a5f;
+  --color-sage-700: #3d6141;
+
+  --shadow-soft: 0 1px 2px rgb(31 27 22 / 0.04), 0 8px 24px -8px rgb(31 27 22 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(31 27 22 / 0.05), 0 18px 40px -12px rgb(31 27 22 / 0.22);
+
+  --animate-fade-up: fade-up 0.35s ease-out both;
+  --animate-blink: blink 1.2s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes blink {
+    0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-2px); }
+  }
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    background-image: radial-gradient(circle at 15% -10%, rgb(255 228 214 / 0.55), transparent 45%),
+      radial-gradient(circle at 100% 0%, rgb(220 234 220 / 0.45), transparent 40%);
+    background-attachment: fixed;
+  }
+  ::selection { @apply bg-ember-200 text-ink; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-ember-500; }
+}
+
+@utility scrollbar-soft {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sand) transparent;
+}
+
+.prose-chat {
+  @apply prose prose-sm max-w-none text-ink-soft sm:prose-base;
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-bullets: var(--color-ember-400);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-links: var(--color-ember-600);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-quotes: var(--color-ink-soft);
+  --tw-prose-quote-borders: var(--color-ember-200);
+}
+.prose-chat :where(p, li) { @apply leading-relaxed; }
+.prose-chat :where(p):first-child { @apply mt-0; }
+.prose-chat :where(p):last-child { @apply mb-0; }
